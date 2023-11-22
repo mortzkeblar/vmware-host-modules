@@ -53,6 +53,8 @@
 #include "vnetInt.h"
 #include "smac.h"
 
+#include <net/gso.h>
+
 #define VNET_BRIDGE_HISTORY    48
 
 /*
@@ -691,7 +693,7 @@ VNetBridgeReceiveFromVNet(VNetJack        *this, // IN: jack
           * not do it, or netif_rx_ni() will deadlock on the cli() lock --hpreg
           */
 
-	 netif_rx_ni(clone);
+	 netif_rx(clone);
 #	 if LOGLEVEL >= 4
 	 vnetTime = ktime_get_ns();
 #	 endif

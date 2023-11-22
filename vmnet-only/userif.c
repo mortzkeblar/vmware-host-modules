@@ -41,7 +41,7 @@
 #include <net/checksum.h>
 #include <net/sock.h>
 
-#include <asm/io.h>
+#include <asm-generic/io.h>
 
 #include "vnetInt.h"
 #include "compat_skbuff.h"
